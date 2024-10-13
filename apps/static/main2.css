@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    background-color: #f0f0c9;
+    padding: 20px;
+    text-align: center;
+    color: green;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+i, em {
+    font-style: italic;
+}
+
+small {
+    font-size: smaller;
+}
+
+mark {
+    background-color: yellow;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins {
+    text-decoration: underline;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}

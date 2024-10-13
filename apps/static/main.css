@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.link-block {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: red;
+}
+
+#link1 {
+    background-color: #b2ffb2;
+}
+
+#link2 {
+    background-color: #595959;
+    color: #ffc107;
+}
+
+#link3 {
+    background-color: #000;
+    color: white;
+}
+
+/* Hover effect */
+.link-block:hover {
+    opacity: 0.8;
+}
+
+/* Visited link styling */
+.link-block:visited {
+    color: purple;
+}
+
+/* Active link styling */
+.link-block:active {
+    color: blue;
+}

@@ -1,0 +1,43 @@
+/* Task 4: Updated Table Styling */
+table {
+    width: auto;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+td {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Special styling for second table */
+.table-2 {
+    width: 100%;
+}
+
+.table-2 img {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.table-2 td {
+    text-align: left;
+    vertical-align: top;
+    padding: 5px;
+}
