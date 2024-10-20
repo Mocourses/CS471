@@ -54,3 +54,33 @@ def listing(request):
  return render(request, 'bookmodule/listing.html')
 def tables(request):
  return render(request, 'bookmodule/tables.html')
+
+#lab6
+def __getBooksList():
+ book1 = {'id':12344321, 'title':'Continuous Delivery', 'author':'J.Humble and D. Farley'}
+ book2 = {'id':56788765,'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
+ book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
+ return [book1, book2, book3]
+# will be called twice based on what request method
+# if method == post then it will be called with the post logic
+# else it will be skipped and the rendering of the form will happen
+#shows the form template
+#listens for POST request, then sends "context dictionoray" to tamplate booklist.html
+def lab6(request):
+ if request.method == "POST":
+    #Post requests comes with form user data in the object "request"
+    # collecting the form data
+    string = request.POST.get('keyword').lower() #string 
+    isTitle = request.POST.get('option1') #boolean
+    isAuthor = request.POST.get('option2') #boolean
+    
+    # This filters the list of books based on the form data.
+    books = __getBooksList()
+    newBooks = []
+    for item in books:
+        contained = False
+        if isTitle and string in item['title'].lower(): contained = True
+        if not contained and isAuthor and string in item['author'].lower():contained = True
+        if contained: newBooks.append(item)
+    return render(request, 'bookmodule/bookList.html', {'books':newBooks})
+ return render(request, 'bookmodule/lab6.html')

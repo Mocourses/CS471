@@ -19,4 +19,8 @@ path('html5/text/formatting', views.formatting),
 path('html5/listing', views.listing),
 path('html5/tables', views.tables),
 
+#lab 6
+# listens for get or post requests.
+path('search/', views.lab6),
+
 ]
