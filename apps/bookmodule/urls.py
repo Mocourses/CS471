@@ -23,4 +23,8 @@ path('html5/tables', views.tables),
 # listens for get or post requests.
 path('search/', views.lab6),
 
+#lab7
+
+path('simple/query', views.simple_query),
+path('complex/query', views.complex_query),
 ]

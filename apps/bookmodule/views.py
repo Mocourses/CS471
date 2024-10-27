@@ -1,6 +1,8 @@
 from django.shortcuts import render
 #LAB_4
 from django.http import HttpResponse
+#LAB 7
+from .models import Book
 
 # #LAB_4
 # def index(request):
@@ -84,3 +86,15 @@ def lab6(request):
         if contained: newBooks.append(item)
     return render(request, 'bookmodule/bookList.html', {'books':newBooks})
  return render(request, 'bookmodule/lab6.html')
+
+def simple_query(request):
+    mybooks=Book.objects.filter(title__icontains='a') # <- multiple objects
+    return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def complex_query(request):
+    mybooks=books=Book.objects.filter(author__isnull =
+    False).filter(title__icontains='a').filter(edition__gte = 2).exclude(price__lte = 50)[:10]
+    if len(mybooks)>=1:
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+    else:
+        return render(request, 'bookmodule/index.html')

@@ -6,7 +6,7 @@
 {% block content %}
 <h2>Search Results</h2>
 
-{% if books %}
+{% comment %} {% if books %}
     <ul>
         {% for book in books %}
             <li>
@@ -19,6 +19,13 @@
     </ul>
 {% else %}
     <p>No books found matching the search criteria.</p>
-{% endif %}
+{% endif %} {% endcomment %}
+
+{% comment %} {% for obj in books %}
+ID: {{obj.id}}, Title: {{obj.title}} {% endcomment %}
+{% for obj in books %}
+ID: {{obj.id}}, Title: {{obj.title}}
+<hr>
+{% endfor %}
 
 {% endblock content %}
