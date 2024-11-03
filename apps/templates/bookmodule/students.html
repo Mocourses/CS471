@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students per City</title>
+</head>
+<body>
+    <h1>Number of Students in Each City</h1>
+    {% if city_stats %}
+        <ul>
+            {% for stat in city_stats %}
+                <li>{{ stat.address__city }}: {{ stat.student_count }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No students found.</p>
+    {% endif %}
+</body>
+</html>

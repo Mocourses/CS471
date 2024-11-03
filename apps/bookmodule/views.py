@@ -1,8 +1,17 @@
 from django.shortcuts import render
 #LAB_4
 from django.http import HttpResponse
+
 #LAB 7
+from django.db import models  # Import models
+
 from .models import Book
+from .models import Student
+from .models import Address
+
+#lab8
+from django.db.models import Q
+from django.db.models import Count, Sum, Avg, Max, Min
 
 # #LAB_4
 # def index(request):
@@ -98,3 +107,47 @@ def complex_query(request):
         return render(request, 'bookmodule/bookList.html', {'books':mybooks})
     else:
         return render(request, 'bookmodule/index.html')
+    
+    #lab8
+def task1(request):
+    books = Book.objects.filter(Q(price__lte=50))
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task2(request):
+    # Filter books with edition > 2 and title or author containing 'qu'
+    books = Book.objects.filter(
+        Q(edition__gt=2) & (Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task3(request):
+    # Filter books with edition > 2 and title or author containing 'qu'
+    books = Book.objects.filter(
+        ~Q(edition__gt=2) & ~Q(title__icontains='qu') & ~Q(author__icontains='qu')
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task4(request):
+    # Filter books with edition > 2 and title or author containing 'qu'
+    books = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def task5(request):
+    stats = Book.objects.aggregate(
+        total_books=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/bookList.html', {'stats': stats})
+
+def task7(request):
+    # Annotate to count students in each city
+    city_stats = (
+        Student.objects
+        .values('address__city')  # Group by city
+        .annotate(student_count=models.Count('id'))  # Count students
+    )
+
+    return render(request, 'bookmodule/students.html', {'city_stats': city_stats})

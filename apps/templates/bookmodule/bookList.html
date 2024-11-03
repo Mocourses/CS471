@@ -4,7 +4,7 @@
 {% block title %} Book List {% endblock title %}
 
 {% block content %}
-<h2>Search Results</h2>
+
 
 {% comment %} {% if books %}
     <ul>
@@ -23,9 +23,24 @@
 
 {% comment %} {% for obj in books %}
 ID: {{obj.id}}, Title: {{obj.title}} {% endcomment %}
-{% for obj in books %}
-ID: {{obj.id}}, Title: {{obj.title}}
+{% if books %}
+<h2>Search Results</h2>
+{% for book in books %}
+ID: {{book.id}}, Title: {{book.title}}, Author: {{book.author}}, Edition: {{book.edition}}, Price: {{book.price}}
 <hr>
 {% endfor %}
+
+{% comment %} stats {% endcomment %}
+{% elif stats %}
+<h3>Book Statistics</h3>
+    <ul>
+        <li>Total Books: {{ stats.total_books }}</li>
+        <li>Total Price: {{ stats.total_price }}</li>
+        <li>Average Price: {{ stats.avg_price }}</li>
+        <li>Maximum Price: {{ stats.max_price }}</li>
+        <li>Minimum Price: {{ stats.min_price }}</li>
+    </ul>
+{% endif %}
+
 
 {% endblock content %}
