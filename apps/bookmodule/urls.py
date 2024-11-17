@@ -37,5 +37,17 @@ path('lab8/task4', views.task4),
 path('lab8/task5', views.task5),
 path('lab8/task7', views.task7),
 
+#lab9
+path('lab9_part1/listbooks', views.lab9_part1, name='lab9_part1'), 
+path('lab9_part1/addbook', views.addbook),
+path('lab9_part1/editbook/<id>', views.editbook),
+path('lab9_part1/deletebook/<id>', views.deletebook),
+
+#lab9_part2
+path('lab9_part2/listbooks', views.lab9_part2, name='lab9_part2'),
+path('lab9_part2/addbook', views.addbook_form, name='addbook_form'),
+path('lab9_part2/editbook/<int:id>', views.editbook_form, name='editbook_form'),
+# path('books/lab9_part2/deletebook/<int:id>', views.deletebook_form, name='deletebook_form'),
+
 
 ]

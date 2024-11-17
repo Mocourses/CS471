@@ -24,9 +24,31 @@
 {% comment %} {% for obj in books %}
 ID: {{obj.id}}, Title: {{obj.title}} {% endcomment %}
 {% if books %}
-<h2>Search Results</h2>
+<h2>All books found: </h2>
 {% for book in books %}
 ID: {{book.id}}, Title: {{book.title}}, Author: {{book.author}}, Edition: {{book.edition}}, Price: {{book.price}}
+{%if lab9%} <div>
+    <a href="/books/lab9_part1/editbook/{{ book.id }}">
+        <button>Edit</button>
+    </a>
+    <a href="/books/lab9_part1/deletebook/{{ book.id }}">
+        <button>Delete</button>
+    </a>
+
+    {% comment %} <button onclick="deleteItem()">Delete</button> {% endcomment %}
+</div>         
+{% endif %}
+{%if part2%} <div>
+    <a href="/books/lab9_part2/editbook/{{ book.id }}">
+        <button>Edit</button>
+    </a>
+    <a href="/books/lab9_part2/deletebook/{{ book.id }}">
+        <button>Delete</button>
+    </a>
+
+    {% comment %} <button onclick="deleteItem()">Delete</button> {% endcomment %}
+</div>         
+{% endif %}
 <hr>
 {% endfor %}
 

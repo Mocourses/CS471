@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if add %}Add Book{% else %}Edit Book{% endif %}</title>
+</head>
+<body>
+    <h1>{% if add %}Add a New Book{% else %}Edit Book{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form fields automatically -->
+        <button type="submit">{% if add %}Add Book{% else %}Update Book{% endif %}</button>
+    </form>
+</body>
+</html>
