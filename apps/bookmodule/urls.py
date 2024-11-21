@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 #LAB_4
 urlpatterns = [
  path('', views.index),
@@ -49,5 +51,16 @@ path('lab9_part2/addbook', views.addbook_form, name='addbook_form'),
 path('lab9_part2/editbook/<int:id>', views.editbook_form, name='editbook_form'),
 # path('books/lab9_part2/deletebook/<int:id>', views.deletebook_form, name='deletebook_form'),
 
+path('students/', views.student_list, name='student_list'),
+path('students/add/', views.student_add, name='student_add'),
+path('students/<int:id>/update/', views.student_update, name='student_update'),
+path('students/<int:id>/delete/', views.student_delete, name='student_delete'),
 
+path('students2/', views.student2_list, name='student2_list'),
+path('students2/add/', views.student2_add, name='student2_add'),
+path('students2/<int:id>/update/', views.student2_update, name='student2_update'),
+path('students2/<int:id>/delete/', views.student2_delete, name='student2_delete'),
+
+path('images/', views.image_gallery_list, name='image_gallery_list'),
+path('images/upload/', views.image_gallery_upload, name='image_gallery_upload'),
 ]

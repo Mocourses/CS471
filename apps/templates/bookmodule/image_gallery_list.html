@@ -1,0 +1,23 @@
+<h1>Image Gallery</h1>
+<a href="{% url 'image_gallery_upload' %}">Upload Image</a>
+
+<table border="1" style="width:100%; border-collapse:collapse;">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Uploaded At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for image in images %}
+        <tr>
+            <td>
+                <img src="{{ image.image.url }}" alt="{{ image.title }}" width="200">
+            </td>
+            <td>{{ image.title }}</td>
+            <td>{{ image.uploaded_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
