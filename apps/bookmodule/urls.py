@@ -51,6 +51,7 @@ path('lab9_part2/addbook', views.addbook_form, name='addbook_form'),
 path('lab9_part2/editbook/<int:id>', views.editbook_form, name='editbook_form'),
 # path('books/lab9_part2/deletebook/<int:id>', views.deletebook_form, name='deletebook_form'),
 
+#LAB10 
 path('students/', views.student_list, name='student_list'),
 path('students/add/', views.student_add, name='student_add'),
 path('students/<int:id>/update/', views.student_update, name='student_update'),

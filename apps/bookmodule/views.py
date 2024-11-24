@@ -15,6 +15,14 @@ from django.db.models import Count, Sum, Avg, Max, Min
 
 from django.shortcuts import redirect
 from ..static import forms 
+from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
+
+
+
+
 
 
 # #LAB_4
@@ -223,10 +231,12 @@ def deletebook_form(request, id):
 
 
 #Lab10
+@login_required(login_url='login')
 def student_list(request):
     students = Student.objects.all()
     return render(request, 'bookmodule/student_list.html', {'students': students})
 
+@login_required(login_url='login')
 def student_add(request):
     if request.method == 'POST':
         student_form = forms.StudentForm(request.POST)
@@ -237,6 +247,7 @@ def student_add(request):
         student_form = forms.StudentForm()
     return render(request, 'bookmodule/student_form.html', {'student_form': student_form})
 
+@login_required(login_url='login')
 def student_update(request, id):
     student = Student.objects.get(id=id)
     if request.method == 'POST':
@@ -248,6 +259,7 @@ def student_update(request, id):
         student_form = forms.StudentForm(instance=student)
     return render(request, 'bookmodule/student_form.html', {'student_form': student_form})
 
+@login_required(login_url='login')
 def student_delete(request, id):
     student = Student.objects.get(id=id)
     student.delete()
@@ -263,7 +275,7 @@ def student2_add(request):
         form = forms.Student2Form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('student2_list')
+            return redirect('register')
     else:
         form = forms.Student2Form()
     return render(request, 'bookmodule/student2_form.html', {'form': form})
@@ -304,3 +316,5 @@ def image_gallery_upload(request):
     else:
         form = forms.ImageGalleryForm()
     return render(request, 'bookmodule/image_gallery_form.html', {'form': form})
+
+
