@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1</title>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Lab 12: Task 1</h1>
+    <button id="changeColorBtn">Change Background Color</button>
+    <button id="changeTextBtn">Change Text</button>
+
+    <div id="myDiv">Default Text</div>
+
+    <script>
+        // Get elements
+        const div = document.getElementById('myDiv');
+        const colorBtn = document.getElementById('changeColorBtn');
+        const textBtn = document.getElementById('changeTextBtn');
+
+        // Add event listener for color change
+        colorBtn.addEventListener('click', function() {
+                div.style.backgroundColor = 'lightblue';
+        });
+
+        // Add event listener for text change
+        textBtn.addEventListener('click', function() {
+            div.innerHTML = 'Text Changed!';
+        });
+    </script>
+</body>
+</html>

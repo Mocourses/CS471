@@ -64,4 +64,12 @@ path('students2/<int:id>/delete/', views.student2_delete, name='student2_delete'
 
 path('images/', views.image_gallery_list, name='image_gallery_list'),
 path('images/upload/', views.image_gallery_upload, name='image_gallery_upload'),
+
+#LAB12
+path('lab12/task1', views.lab12_task1, name='lab12_task1'),
+path('lab12/task2', views.lab12_task2, name='lab12_task2'),
+path('lab12/task3', views.lab12_task3, name='lab12_task3'),
+path('lab12/task4', views.lab12_task4, name='lab12_task4'),
+path('lab12/task5', views.lab12_task5, name='lab12_task5'),
+
 ]

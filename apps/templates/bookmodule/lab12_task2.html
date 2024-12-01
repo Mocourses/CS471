@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Lab 12: Task 2</h1>
+    <button id="addItemBtn">Add Item</button>
+
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        // Get elements
+        const addItemBtn = document.getElementById('addItemBtn');
+        const myList = document.getElementById('myList');
+
+        // Add event listener for adding new list item
+        addItemBtn.addEventListener('click', function() {
+            const newItem = document.createElement('li'); // Create a new <li> element
+            newItem.textContent = `New Item`; // Add text content
+            myList.appendChild(newItem); // Append the new item to the list
+        });
+    </script>
+</body>
+</html>

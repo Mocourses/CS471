@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 4</title>
+    <style>
+        #hoverDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            text-align: center;
+            line-height: 200px;
+            margin: 20px auto;
+            font-size: 16px;
+            transition: all 0.3s ease; /* Smooth style transitions */
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab 12: Task 4</h1>
+    <div id="hoverDiv">Hover here</div>
+
+    <script>
+        // Get the div element
+        const hoverDiv = document.getElementById('hoverDiv');
+
+        // Add event listener for mouse hover
+        hoverDiv.addEventListener('mouseenter', function() {
+            hoverDiv.style.backgroundColor = 'lightblue'; // Change background color
+            hoverDiv.style.fontSize = '24px'; // Change font size
+        });
+
+        // Add event listener for mouse leave
+        hoverDiv.addEventListener('mouseleave', function() {
+            hoverDiv.style.backgroundColor = 'lightgray'; // Revert background color
+            hoverDiv.style.fontSize = '16px'; // Revert font size
+        });
+    </script>
+</body>
+</html>

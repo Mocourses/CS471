@@ -318,3 +318,14 @@ def image_gallery_upload(request):
     return render(request, 'bookmodule/image_gallery_form.html', {'form': form})
 
 
+#lab12
+def lab12_task1(request):
+    return render(request, 'bookmodule/lab12_task1.html')
+def lab12_task2(request):
+    return render(request, 'bookmodule/lab12_task2.html')
+def lab12_task3(request):
+    return render(request, 'bookmodule/lab12_task3.html')
+def lab12_task4(request):
+    return render(request, 'bookmodule/lab12_task4.html')
+def lab12_task5(request):
+    return render(request, 'bookmodule/lab12_task5.html')

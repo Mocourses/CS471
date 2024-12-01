@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 5</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab 12: Task 5</h1>
+    <div id="tableContainer"></div>
+
+    <script>
+        // Get the container where the table will be added
+        const tableContainer = document.getElementById('tableContainer');
+
+        // Create the table element
+        const table = document.createElement('table');
+
+        // Add a header row
+        const headerRow = document.createElement('tr');
+        const headers = ['Name', 'Age', 'City'];
+        headers.forEach(headerText => {
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+        table.appendChild(headerRow);
+
+        // Add some rows with data
+        const data = [
+            ['Mohammed', 25, 'Qassim'],
+            ['Khalid', 30, 'Jeddah'],
+            ['Saad', 22, 'khobar']
+        ];
+
+        data.forEach(rowData => {
+            const row = document.createElement('tr');
+            rowData.forEach(cellData => {
+                const td = document.createElement('td');
+                td.textContent = cellData;
+                row.appendChild(td);
+            });
+            table.appendChild(row);
+        });
+
+        // Append the table to the container
+        tableContainer.appendChild(table);
+    </script>
+</body>
+</html>
